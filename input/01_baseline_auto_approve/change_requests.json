@@ -1,0 +1,24 @@
+[
+  {
+    "id": "CR-101",
+    "title": "Increase quote cache TTL",
+    "request_type": "runtime_config_change",
+    "service": "pricing-edge",
+    "environment": "staging",
+    "requested_by": "platform_engineer",
+    "summary": "Increase in-memory quote cache TTL from 50ms to 100ms to reduce backend pressure during peak periods.",
+    "proposed_change": {
+      "field": "quote_cache_ttl_ms",
+      "old_value": 50,
+      "new_value": 100
+    },
+    "blast_radius": "single_service",
+    "rollback_defined": true,
+    "test_evidence": [
+      "load_test_passed",
+      "staging_smoke_test_passed"
+    ],
+    "change_window": "business_hours",
+    "llm_generated": false
+  }
+]

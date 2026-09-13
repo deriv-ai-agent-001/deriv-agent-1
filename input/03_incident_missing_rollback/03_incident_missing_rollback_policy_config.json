@@ -1,0 +1,39 @@
+{
+  "protected_services": [
+    "trade-risk-engine",
+    "order-routing",
+    "pricing-edge"
+  ],
+  "production_requires_rollback": true,
+  "high_risk_request_types": [
+    "risk_rule_change",
+    "market_access_change"
+  ],
+  "incident_exception_allows_missing_tests": true,
+  "incident_exception_allows_missing_rollback": false,
+  "llm_generated_changes_require_human_review": true,
+  "max_auto_approve_blast_radius": "single_service",
+  "blocked_without_simulation_for": [
+    "risk_rule_change"
+  ],
+  "latency_sensitive_services": [
+    "pricing-edge",
+    "market-stream-gateway",
+    "order-routing"
+  ],
+  "max_latency_impact_auto_approve_ms": 2,
+  "required_evidence_by_type": {
+    "code_deployment": [
+      "unit_tests_passed"
+    ],
+    "runtime_config_change": [
+      "staging_smoke_test_passed"
+    ],
+    "prompt_change": [
+      "offline_eval_passed"
+    ],
+    "risk_rule_change": [
+      "simulation_passed"
+    ]
+  }
+}

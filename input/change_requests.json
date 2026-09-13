@@ -1,0 +1,76 @@
+[
+    {
+      "id": "CR-101",
+      "title": "Increase quote cache TTL",
+      "request_type": "runtime_config_change",
+      "service": "pricing-edge",
+      "environment": "staging",
+      "requested_by": "platform_engineer",
+      "summary": "Increase in-memory quote cache TTL from 50ms to 100ms to reduce backend pressure during peak periods.",
+      "proposed_change": {
+        "field": "quote_cache_ttl_ms",
+        "old_value": 50,
+        "new_value": 100
+      },
+      "blast_radius": "single_service",
+      "rollback_defined": true,
+      "test_evidence": ["load_test_passed", "staging_smoke_test_passed"],
+      "change_window": "business_hours",
+      "llm_generated": false
+    },
+    {
+      "id": "CR-102",
+      "title": "Update production risk threshold",
+      "request_type": "risk_rule_change",
+      "service": "trade-risk-engine",
+      "environment": "production",
+      "requested_by": "ai_ops_agent",
+      "summary": "Raise per-account automated exposure threshold by 15% based on recent false-positive alerts.",
+      "proposed_change": {
+        "field": "account_exposure_limit_multiplier",
+        "old_value": 1.0,
+        "new_value": 1.15
+      },
+      "blast_radius": "multi_region",
+      "rollback_defined": true,
+      "test_evidence": ["simulation_partial"],
+      "change_window": "business_hours",
+      "llm_generated": true
+    },
+    {
+      "id": "CR-103",
+      "title": "Hotfix deployment for websocket reconnect storm",
+      "request_type": "code_deployment",
+      "service": "market-stream-gateway",
+      "environment": "production",
+      "requested_by": "incident_commander",
+      "summary": "Deploy hotfix to reduce reconnect amplification during regional packet loss incident.",
+      "proposed_change": {
+        "artifact_version": "2026.05.12-hotfix1"
+      },
+      "blast_radius": "global",
+      "rollback_defined": false,
+      "test_evidence": ["unit_tests_passed"],
+      "change_window": "incident_exception",
+      "llm_generated": false
+    },
+    {
+      "id": "CR-104",
+      "title": "Prompt update for support triage assistant",
+      "request_type": "prompt_change",
+      "service": "ops-copilot",
+      "environment": "production",
+      "requested_by": "ml_engineer",
+      "summary": "Revise system prompt to make incident summaries shorter and more action-oriented.",
+      "proposed_change": {
+        "prompt_version": "v18",
+        "replaces": "v17"
+      },
+      "blast_radius": "internal_only",
+      "rollback_defined": true,
+      "test_evidence": ["offline_eval_passed"],
+      "change_window": "business_hours",
+      "llm_generated": true
+    }
+]
+  

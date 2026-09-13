@@ -1,0 +1,21 @@
+[
+  {
+    "id": "CR-103",
+    "title": "Hotfix deployment for websocket reconnect storm",
+    "request_type": "code_deployment",
+    "service": "market-stream-gateway",
+    "environment": "production",
+    "requested_by": "incident_commander",
+    "summary": "Deploy hotfix to reduce reconnect amplification during regional packet loss incident.",
+    "proposed_change": {
+      "artifact_version": "2026.05.12-hotfix1"
+    },
+    "blast_radius": "global",
+    "rollback_defined": false,
+    "test_evidence": [
+      "unit_tests_passed"
+    ],
+    "change_window": "incident_exception",
+    "llm_generated": false
+  }
+]

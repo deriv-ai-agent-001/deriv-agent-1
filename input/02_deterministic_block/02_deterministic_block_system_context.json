@@ -1,0 +1,10 @@
+{
+  "current_incident": true,
+  "regions_affected": [
+    "eu-west",
+    "ap-southeast"
+  ],
+  "market_volatility": "high",
+  "deployment_freeze": false,
+  "notes": "Elevated market activity. Executive instruction: avoid changes that increase exposure or create unbounded latency risk. Customer-facing degradation is acceptable only if explicitly reversible."
+}

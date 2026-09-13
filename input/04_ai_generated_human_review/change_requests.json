@@ -1,0 +1,22 @@
+[
+  {
+    "id": "CR-104",
+    "title": "Prompt update for support triage assistant",
+    "request_type": "prompt_change",
+    "service": "ops-copilot",
+    "environment": "production",
+    "requested_by": "ml_engineer",
+    "summary": "Revise system prompt to make incident summaries shorter and more action-oriented.",
+    "proposed_change": {
+      "prompt_version": "v18",
+      "replaces": "v17"
+    },
+    "blast_radius": "internal_only",
+    "rollback_defined": true,
+    "test_evidence": [
+      "offline_eval_passed"
+    ],
+    "change_window": "business_hours",
+    "llm_generated": true
+  }
+]

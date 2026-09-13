@@ -1,0 +1,23 @@
+[
+  {
+    "id": "CR-102",
+    "title": "Update production risk threshold",
+    "request_type": "risk_rule_change",
+    "service": "trade-risk-engine",
+    "environment": "production",
+    "requested_by": "ai_ops_agent",
+    "summary": "Raise per-account automated exposure threshold by 15% based on recent false-positive alerts.",
+    "proposed_change": {
+      "field": "account_exposure_limit_multiplier",
+      "old_value": 1.0,
+      "new_value": 1.15
+    },
+    "blast_radius": "multi_region",
+    "rollback_defined": true,
+    "test_evidence": [
+      "simulation_partial"
+    ],
+    "change_window": "business_hours",
+    "llm_generated": true
+  }
+]
